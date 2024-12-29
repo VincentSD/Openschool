@@ -8,12 +8,12 @@ SCRIPT_DIR=$(dirname "$0")
 
 # Step 1: Create OpenSchool-Project directory in the same location as the script
 echo "Creating project directory in $SCRIPT_DIR/OpenSchools-Project..."
-mkdir -p "$SCRIPT_DIR/OpenSchools-Project"
-cd "$SCRIPT_DIR/OpenSchools-Project"
+mkdir -p "$SCRIPT_DIR/OpenSchool-Project"
+cd "$SCRIPT_DIR/OpenSchool-Project"
 
 # Step 2: Clone the repository into moodle directory
-echo "Cloning OpenSchools repository..."
-# git clone https://github.com/VincentSD/Openschool.git moodle
+echo "Cloning OpenSchool repository..."
+git clone https://github.com/VincentSD/Openschool.git moodle
 
 # Step 3: Create moodledata directory and set permissions
 echo "Creating moodledata directory..."
@@ -46,7 +46,7 @@ mysql -u root -e "CREATE DATABASE IF NOT EXISTS moodle;"
 # Step 7: Create .lando.yml file
 
 # Check if the directory is correct and if we can create the file
-if [ ! -d "$SCRIPT_DIR/OpenSchools-Project" ]; then
+if [ ! -d "$SCRIPT_DIR/OpenSchool-Project" ]; then
   echo "Error: Project directory not found. Exiting."
   exit 1
 fi
